@@ -1,6 +1,7 @@
 %Sergio Vargas R. 2015.
 
 \documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt,twocolumn]{article}%twocolumn layout; not sure if this works correctly. Feel free to experiment.
 \usepackage[pdftex]{color,graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{pxfonts}
@@ -149,9 +150,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
-\lhead{{\footnotesize Vargas et al.}}
+\lhead{{\footnotesize Author et al.}}
 \chead{}
-\rhead{{\footnotesize Molecular phylogeny of \emph{Rossella}}}
+\rhead{{\footnotesize Running head here}}
 \lfoot{\ccbynd}
 \cfoot{\thepage}
 \rfoot{\biorxiv}
@@ -161,7 +162,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \lhead{\biorxiv}
 \chead{}
-\rhead{{\footnotesize DOI here!}}
+\rhead{{\footnotesize DOI here if wanted}}
 \lfoot{}
 \cfoot{\ccbynd}
 \rfoot{}
@@ -187,9 +188,9 @@
 \fi
 
 %uncomment the type of bioRxiv preprint below to added to the first page
-\newresults{}
+%\newresults{}
 %\confirmatoryresults{}
-%\contradictoryresults{}
+\contradictoryresults{}
 
 %flushleft the title, authorblock and Abstract
 %modified from http://tex.stackexchange.com/questions/85343/left-align-abstract-title-and-authors
@@ -224,6 +225,12 @@
 %if to do notes need to be added: need to configure this!
 \usepackage[colorinlistoftodos]{todonotes}
 
+%feel free to change the reference style to suit your needs
+\usepackage[firstinits=true, backref=false, maxcitenames=99, sorting=none, hyperref=auto, style=numeric-comp, defernumbers=true, backend=bibtex]{biblatex}[2010/11-19]
+
+%change the name of this file to point to your bib file.
+\bibliography{./Bibliography/Literature}
+
 \begin{document}
 
 %always keep the \newline command at the end of the title to add space between the title and the authors
@@ -249,24 +256,22 @@ Blah, blah, blah.
 \textbf{Key words} Blah, Blah blah.
 \end{abstract}
 
-
 \section{Introduction}
 Blah blah blah.
 
 \section{Materials and Methods}
 
-Blah blah blah.
+Blah blah \cite[see ][ for details]{Vargasetal_2012_PLoSONE}blah.
 %\subsection{Use subsections if wanted}
 
 \section{Results}
-Blah blah blah.
+Blah blah blah \cite[e.g. ][]{BreedyandGuzman_2003a_Zootaxa}.
 %\subsection{Use subsections if wanted}
 
 \section{Discussion}
 
-Blah blah blah.
+Blah blah blah. \cite{AmentVelasquezetal_2016_MPE}
 %\subsection{Use subsections if wanted}
-
 
 \section{Conclusion}
 
@@ -275,16 +280,20 @@ Blah blah blah.
 \section*{Acknowledgements}
 
 Blah blah blah.
-
-\section{References}
-
 %this is how you use todonotes:
 
-\todo[inline]{I still need to implement reference management with bitext...}
+\todo[inline]{this is how you can add todo notes to your manuscript!...}
 
-{\noindent
-Your reference here... if you want to write them.
-}
+%if you want to add the references manually uncomment the following lines
+%\section*{References}
+%{\noindent
+%Your reference here... if you want to write them.
+%}
+
+%you also need to comment the line \bibliography{./Bibliography/Literature} in the preamble...
+
+%if you use bibtex use it to print the bibliography
+\printbibliography
 
 %Paste tables and figures here if you want them to appear at the end of the preprint. Otherwise place them wherever you want!
 
